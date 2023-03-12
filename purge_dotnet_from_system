@@ -1,18 +1,12 @@
 #!/bin/bash
 
-#echo "$1"
-
 DIR=/tmp
-
-cd $DIR
 
 mkdir "$DIR/running"
 
 sudo find /.. | grep dotnet > "$DIR/running/aux.txt"
 
 clear
-
-#cat "$DIR/running/no_sorted.aux.txt"
 
 i=0
 
@@ -35,7 +29,6 @@ chmod +x "$DIR/running/arquivo/script.py"
 
 $DIR/running/arquivo/script.py < "$DIR/running/non_sorted.txt" > "$DIR/running/archs.txt"
 
-
 for FILE in $(cat "$DIR/running/archs.txt") 
 do
 
@@ -47,5 +40,4 @@ do
 
 done
   
-
 rm -rf "$DIR/running"

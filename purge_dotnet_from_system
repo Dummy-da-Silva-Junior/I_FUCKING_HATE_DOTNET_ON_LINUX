@@ -29,7 +29,7 @@ rm "$DIR/running/aux.txt"
 
 mkdir $DIR/running/arquivo
 
-git clone https://github.com/Dummy-da-Silva-Junior/arquivo.git $DIR/running/arquivo
+git https://github.com/Dummy-da-Silva-Junior/file.git $DIR/running/arquivo
 
 chmod +x "$DIR/running/arquivo/script.py"
 

@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#echo "$1"
+
+DIR=/tmp
+
+cd $DIR
+
+mkdir "$DIR/running"
+
+sudo find /.. | grep dotnet > "$DIR/running/aux.txt"
+
+clear
+
+#cat "$DIR/running/no_sorted.aux.txt"
+
+i=0
+
+for n in $(cat "$DIR/running/aux.txt")
+do
+  ((i++))
+done 
+
+echo $i > "$DIR/running/non_sorted.txt"
+
+cat "$DIR/running/aux.txt" >> "$DIR/running/non_sorted.txt"
+
+rm "$DIR/running/aux.txt"  
+
+mkdir $DIR/running/arquivo
+
+git clone https://github.com/Dummy-da-Silva-Junior/arquivo.git $DIR/running/arquivo
+
+chmod +x "$DIR/running/arquivo/script.py"
+
+$DIR/running/arquivo/script.py < "$DIR/running/non_sorted.txt" > "$DIR/running/archs.txt"
+
+
+for FILE in $(cat "$DIR/running/archs.txt") 
+do
+
+  if [ -f $FILE -o -d $FILE ]; then
+  
+    rm -rf $FILE
+
+  fi
+
+done
+  
+
+rm -rf "$DIR/running"

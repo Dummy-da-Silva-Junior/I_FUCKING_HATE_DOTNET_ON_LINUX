@@ -34,7 +34,7 @@ do
 
   if [ -f $FILE -o -d $FILE ]; then
   
-    rm -rf $FILE
+    sudo rm -rf $FILE
 
   fi
 
